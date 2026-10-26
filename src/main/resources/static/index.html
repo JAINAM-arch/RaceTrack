@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaceTrack | Racing Championship Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark navbar-expand-lg">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="#">
+                <span class="brand-mark">RT</span> RACETRACK
+            </a>
+            <span class="navbar-text">RACING CHAMPIONSHIP MANAGEMENT</span>
+        </div>
+    </nav>
+
+    <main class="container-fluid px-4 py-4">
+
+        <section class="hero-panel mb-4">
+            <div>
+                <p class="eyebrow">RACE CONTROL / DASHBOARD</p>
+                <h1>Every race.<br><span>Every result.</span></h1>
+                <p class="hero-description">
+                    Manage teams, drivers, cars and championship standings
+                    from one control centre.
+                </p>
+            </div>
+            <div class="hero-badge">
+                <span class="live-dot"></span>
+                <span id="connectionStatus">CONNECTING TO BACKEND</span>
+            </div>
+        </section>
+
+        <section class="row g-3 mb-4">
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+                    <p>REGISTERED TEAMS</p>
+                    <h2 id="teamCount">—</h2>
+                    <span>Teams on the grid</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+                    <p>DRIVERS</p>
+                    <h2 id="driverCount">—</h2>
+                    <span>Registered drivers</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+                    <p>RACING CARS</p>
+                    <h2 id="carCount">—</h2>
+                    <span>Cars registered</span>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+                <div class="stat-card">
+                    <p>CHAMPIONSHIPS</p>
+                    <h2 id="championshipCount">—</h2>
+                    <span>Seasons managed</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="row g-4">
+            <div class="col-lg-7">
+                <div class="content-panel h-100">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">RACE OPERATIONS</p>
+                            <h3>Race Calendar</h3>
+                        </div>
+                        <button class="btn btn-outline-light btn-sm"
+                                onclick="loadRaces()">Refresh</button>
+                    </div>
+                    <div id="raceList" class="table-responsive">
+                        <p class="muted">Loading race events...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="content-panel h-100">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">CHAMPIONSHIP</p>
+                            <h3>Driver Standings</h3>
+                        </div>
+                        <button class="btn btn-outline-light btn-sm"
+                                onclick="loadStandings()">Refresh</button>
+                    </div>
+                    <div id="standingsList">
+                        <p class="muted">Loading standings...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-panel mt-4">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">MANAGEMENT</p>
+                    <h3>Quick Access</h3>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <button class="quick-action" onclick="showSection('teams')">
+                        <span>01</span><strong>Teams</strong>
+                        <small>Manage racing teams</small>
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="quick-action" onclick="showSection('drivers')">
+                        <span>02</span><strong>Drivers</strong>
+                        <small>Manage driver records</small>
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="quick-action" onclick="showSection('cars')">
+                        <span>03</span><strong>Cars</strong>
+                        <small>Manage racing cars</small>
+                    </button>
+                </div>
+                <div class="col-6 col-md-3">
+                    <button class="quick-action" onclick="showSection('championships')">
+                        <span>04</span><strong>Championships</strong>
+                        <small>Manage seasons</small>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="managementSection" class="content-panel mt-4" hidden>
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">RACE CONTROL</p>
+                    <h3 id="managementTitle">Management</h3>
+                </div>
+                <button class="btn btn-outline-light btn-sm"
+                        onclick="closeSection()">Close</button>
+            </div>
+            <div id="managementContent"></div>
+        </section>
+
+        <footer class="footer mt-4">
+            <span>RACETRACK © 2026</span>
+            <span>CHAMPIONSHIP MANAGEMENT SYSTEM</span>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
